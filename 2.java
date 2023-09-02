@@ -1,87 +1,63 @@
 import java.util.*;
-
-
+public class Main {
+    public static void main(String[] args)
+    {
+        Scanner obj = new Scanner(System.in);
+        System.out.println("Enter real and imaginary part of Complex number 1:");
+        int x1 = obj.nextInt();
+        int y1 = obj.nextInt();
+        System.out.println("Enter real and imaginary part of Complex number 2:");
+        int x2 = obj.nextInt();
+        int y2 = obj.nextInt();
+        System.out.println("Arithmetic operations...");
+        complex comp = new complex();
+        complex x = new complex(x1,y1);
+        complex y = new complex(x2,y2);
+        comp.add(x,y);
+        comp.sub(x,y);
+        comp.mul(x,y);
+        comp.div(x,y);
+    }
+}
 class complex
 {
-  int real, img;
-
-  complex (int r, int i)
-  {
-    this.real = r;
-    this.img = i;
-  }
-  void show(){
-    System.out.println(this.real+"+"+"("+this.img+"i"+")");
-}
-  
-   complex add(complex c1,complex c2){
-       complex a = new complex(0,0);
-       a.real = c1.real+c2.real;
-       a.img = c1.img+c2.img;
-       return a;
-
-  }
-  complex multiply(complex c1,complex c2){
-       complex m = new complex(0,0);
-       m.real = c1.real*c2.real;
-       m.img = c1.img*c2.img;
-       return m;
-       
-  }
-  complex sub(complex c1,complex c2){
-       complex s = new complex(0,0);
-       s.real = c1.real-c2.real;
-       s.img = c1.img-c2.img;
-       return s;
-       
-  }
-   complex div(complex c1,complex c2){
-       complex d = new complex(0,0);
-       d.real = c1.real/c2.real;
-       d.img = c1.img/c2.img;
-       return d;
-       
-  }
-  
-}
-public class Main{
-  public static void main (String[]args)
-  {
-    Scanner obj = new Scanner (System.in);
- 
-    System.out.println ("enter real and img part");
-    int n1 = obj.nextInt ();
-    int n2 = obj.nextInt ();
-    System.out.println ("enter real and img part");
-    int m1 = obj.nextInt ();
-    int m2 = obj.nextInt ();
-    
-    complex c1 = new complex(n1,n2);
-    complex c2 = new complex(m1,m2);
-    complex a = new complex(0,0);
-    a=a.add(c1,c2);
-    System.out.println("addition: ");
-    a.show();
-    complex m = new complex(0,0);
-    m=m.sub(c1,c2);
-        System.out.println("subraction: ");
-
-    
-    m.show();
-    complex s =  new complex(0,0);
-    s=s.multiply(c1,c2);
-        System.out.println("multiplication: ");
-
-    s.show();
-    complex d =  new complex(0,0);
-    d=d.div(c1,c2);
-        System.out.println("divison: ");
-
-    d.show();
-    
-    
-    
-
-  }
-
-}
+    int real, img;
+    char ch = '+';
+    //default constructor
+    complex()
+    {}
+    //parameterized constructor
+    complex(int r,int i)
+    {
+        real=r;
+        img=i;
+    }
+    void add(complex x, complex y)
+    {
+        complex a= new complex();
+        a.real = x.real + y.real;
+        a.img = x.img + y.img;
+        System.out.println("Addition: "+a.real+ch+a.img+"i");
+    }
+    void sub(complex x, complex y)
+    {
+        complex b = new complex();
+        b.real = x.real - y.real;
+        b.img = x.img - y.img;
+        System.out.println("Subtraction: "+ b.real+ch+b.img+"i");
+    }
+    void mul(complex x, complex y)
+    {
+        complex m = new complex();
+        m.real = x.real * y.real;
+        m.img = x.img * y.img;
+        System.out.println("Multiplication: "+m.real+ch+m.img+"i");
+    }
+    void div(complex x, complex y)
+    {
+        complex d = new complex();
+        d.real = x.real / y.real;
+        d.img = x.img / y.img;
+        System.out.println("Division: "+d.real+ch+d.img+"i");
+    }
+}    
