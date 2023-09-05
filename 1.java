@@ -17,11 +17,7 @@ public class JavaApplication1 {
         p.setz(c);
         p.setxy(a,b);
         p.setxyz(a,b,c);
-        System.out.println(p);
-
-
-       
-       
+        System.out.println(p);  
     }
    
 }
