@@ -1,14 +1,7 @@
 package javaapplication1;
 import java.util.*;
-/**
- *
- * @author 22cseb03
- */
-public class JavaApplication1 {
 
-    /**
-     * @param args the command line arguments
-     */
+public class JavaApplication1 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner obj = new Scanner(System.in);
