@@ -1,81 +1,104 @@
+package javaapplication1;
 import java.util.*;
-class complex
-{
-  int real, img;
-
-  complex (int r, int i)
-  {
-    this.real = r;
-    this.img = i;
-  }
-  void show(){
-    System.out.println(this.real+"+"+"("+this.img+"i"+")");
-}
-  complex add(complex c1,complex c2){
-       complex a = new complex(0,0);
-       a.real = c1.real+c2.real;
-       a.img = c1.img+c2.img;
-       return a;
-
-  }
-  complex multiply(complex c1,complex c2){
-       complex m = new complex(0,0);
-       m.real = c1.real*c2.real;
-       m.img = c1.img*c2.img;
-       return m;
-       
-  }
-  complex sub(complex c1,complex c2){
-       complex s = new complex(0,0);
-       s.real = c1.real-c2.real;
-       s.img = c1.img-c2.img;
-       return s;
-       
-  }
-   complex div(complex c1,complex c2){
-       complex d = new complex(0,0);
-       d.real = c1.real/c2.real;
-       d.img = c1.img/c2.img;
-       return d;
-       
-  }
-  
-}
-public class Main{
-  public static void main (String[]args)
-  {
-    Scanner obj = new Scanner (System.in);
- 
-    System.out.println ("enter real and img part");
-    int n1 = obj.nextInt ();
-    int n2 = obj.nextInt ();
-    System.out.println ("enter real and img part");
-    int m1 = obj.nextInt ();
-    int m2 = obj.nextInt ();
-    
-    complex c1 = new complex(n1,n2);
-    complex c2 = new complex(m1,m2);
-    complex a = new complex(0,0);
-    a=a.add(c1,c2);
-    System.out.println("addition: ");
-    a.show();
-    complex m = new complex(0,0);
-    m=m.sub(c1,c2);
-        System.out.println("subraction: ");
-
-    
-    m.show();
-    complex s =  new complex(0,0);
-    s=s.multiply(c1,c2);
-        System.out.println("multiplication: ");
-
-    s.show();
-    complex d =  new complex(0,0);
-    d=d.div(c1,c2);
-        System.out.println("divison: ");
-
-    d.show();
-    
+public class JavaApplication1 {
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner obj = new Scanner(System.in);
+        System.out.println("enter value for x");
+        float a = obj.nextFloat();
+        System.out.println("enter value for y");
+        float b = obj.nextFloat();
+        System.out.println("enter value for z");
+        float c = obj.nextFloat();
+        point2D p1 = new point2D();
+        point3D p = new point3D();
+        p1.setxy(a,b);
+        p.setx(a);
+        p.sety(b);
+        p.setz(c);
+        p.setxyz(a,b,c);
+        System.out.println(p1);
+        System.out.println(p);
  }
+   
+}
+class point2D{
+     private float x,y;
+     float[] xy =  new float[2];
 
+     
+     point2D(){
+         x=12.5f;
+         y=20.4f;
+         
+       }
+     point2D(float x,float y){
+         this.x=x;
+         this.y=y;
+     }
+            public float getx(){
+                return x;
+            }
+            void  setx(float a){
+                 x=a;
+            }
+            public float gety(){
+                return y;
+            }
+           
+            void sety(float b){
+                y =b;
+            }
+             
+             void  setxy(float a,float b){    
+                xy[0]=a;
+                xy[1]=b;
+            }
+         
+            public float[] getxy(){
+                return xy;
+                         
+             }
+            public String toString(){
+              return Arrays.toString(getxy());            
+            }
+}
+class point3D extends point2D{
+     private float x,y,z;
+     
+     float[] xyz =  new float[3];
+
+     point3D(){
+         z=35.7f;
+         
+       }
+     point3D(float x,float y,float z){
+         this.x=x;
+         this.y=y;
+         this.z=z;
+
+         
+     }
+        public float getz(){
+                return z;
+            }
+     
+         void setz(float c){
+                z=c;
+            }
+         void  setxyz(float a,float b,float c){
+                  xyz[0]=a;
+                  xyz[1]=b;
+                  xyz[2]=c;
+       }
+       public float[] getxyz(){
+             return xyz ;
+       }
+        
+       
+         public String toString(){
+      
+                return Arrays.toString(getxyz());
+          
+         }      
 }
